@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #mohamad{
+            user-select: none;
+        }
+    </style>
+</head>
+<body>
+
+    <h1></h1>
+    <h1></h1>
+    
+    <script>
+                let temp = []
+        // let arr = ['lena','hana','nora','nila','mohamad']
+        let arr1 = [12,2,22,23,1]
+        let temp1 = arr1.filter((item1)=>{
+            return item1 > 4
+        })
+        document.getElementsByTagName('h1')[0].innerHTML = temp1
+        // console.log(temp1);
+        temp1.forEach((item)=>{
+            document.getElementsByTagName('h1')[1].innerHTML += ` <li id="mohamad"> ${item} </li> `
+        })
+        let content = true
+        let _mohamad = document.querySelectorAll('#mohamad');
+        _mohamad.forEach((val)=>{
+            val.setAttribute('data-status','on')
+            val.addEventListener('click',()=>{
+                // flag = true
+                if(val.getAttribute('data-status') == 'on'){
+                    val.style.color = 'red'
+                    val.setAttribute('data-status','off')
+                }else{
+                    val.setAttribute('data-status','on')
+                    val.style.color = '#000'
+                }
+            })
+        })
+    </script>
+</body>
+</html>

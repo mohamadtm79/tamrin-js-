@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input{
+            width: 47%;
+            height: 42px;
+        }
+        body{
+            height: 100vh;
+            font-size: 31px;
+            background: black;
+            color: wheat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            letter-spacing: 4px;
+        }
+    </style>
+</head>
+<body>
+    <input id="text-to-search" type="text" placeholder="search....">
+    <p id="paragraph">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore voluptatem soluta quam. In laboriosam accusamus, soluta quibusdam nostrum porro ullam ipsam tempora libero, ducimus vitae autem, illo et. Nostrum eum ullam corporis commodi quaerat deserunt reprehenderit illum explicabo unde beatae, minus similique saepe expedita atque quisquam autem totam libero? Suscipit corrupti amet corporis optio sapiente qui velit dolorum praesentium. Eum odit in, perferendis, dolorum, excepturi dolore hic tempora eveniet rerum esse incidunt reprehenderit numquam reiciendis quo. Fuga esse reprehenderit, magnam dolores expedita doloremque autem similique repellendus facere debitis non vero dolorum, praesentium cupiditate itaque obcaecati molestiae in ex at ut.
+    </p>
+    
+
+
+    <script>
+        document.getElementsByTagName('input')[0].addEventListener('input',function(){
+            let textTo = document.getElementById('text-to-search').value
+            let _paragraph = document.getElementById('paragraph')
+            console.log(textTo);
+            textTo = textTo.replace(/[.**?^${}()|[\]\\]/g,"\\$&");
+            let pattern = new RegExp(`${textTo}`,"gi");
+            _paragraph.innerHTML = _paragraph.textContent.replace(pattern, match=>`<mark>${match}</mark>`)
+        })
+    </script>
+</body>
+</html>
